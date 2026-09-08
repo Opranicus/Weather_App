@@ -30,19 +30,25 @@ export default function Homepage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-400 to-white">
-      <div className="p-10">
+      <div className="p-10 flex flex-col justify-center items-center">
         {error && <h1>{error}</h1>}
         <h1 className="text-center font-medium text-2xl">My Location</h1>
-        <div>
-          {weather && <img src='https://openweathermap.org/payload/api/media/file/10d@2x.png' />}
-          {weather && <h1 className="text-4xl font-medium text-yellow-200">{weather.main.temp} C</h1>}
-        </div>
+        <div className="w-sm mt-8 flex flex-col items-center justify-center">
+          
+          {weather && <img src='https://openweathermap.org/payload/api/media/file/10d@2x.png' className="w-32 h-32" />}
+          <div className="flex justify-center items-end gap-5 text-underline">
 
-        <div>
-          {weather && <h2>{weather.weather[0].description}</h2>}
-          {weather && <h2>{weather.main.feels_like}</h2>}
-        </div>
+            {weather && <h1 className="text-3xl font-medium text-yellow-500">{weather.main.temp} C</h1>}
+            {weather && <h1 className="text-[18px] font-medium">{weather.weather[0].description}</h1>}
 
+          </div>
+
+          {weather && <h2 className="mt-3 font-medium">Feels like: {weather.main.feels_like} C</h2>}
+
+        </div>
+         
+
+        
       </div>
     </div>
   )
