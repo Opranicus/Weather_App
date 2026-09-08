@@ -20,7 +20,7 @@ export default function Homepage() {
           setError("Failed to fetch weather");
         }
       },
-    
+
       () => {
         setError("Please Allow location");
       }
@@ -33,7 +33,16 @@ export default function Homepage() {
       <div className="p-10">
         {error && <h1>{error}</h1>}
         <h1 className="text-center font-medium text-2xl">My Location</h1>
-        {weather && <h1>{weather.main.temp} C</h1>}
+        <div>
+          {weather && <img src='https://openweathermap.org/payload/api/media/file/10d@2x.png' />}
+          {weather && <h1 className="text-4xl font-medium text-yellow-200">{weather.main.temp} C</h1>}
+        </div>
+
+        <div>
+          {weather && <h2>{weather.weather[0].description}</h2>}
+          {weather && <h2>{weather.main.feels_like}</h2>}
+        </div>
+
       </div>
     </div>
   )
