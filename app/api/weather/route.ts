@@ -12,14 +12,26 @@ export async function GET(request: Request){
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     );
 
+    const uvres = await fetch(
+        `https://openweathermap.org${lat}&lon=${lon}&appid=${apiKey}`
+    );
+
     if(!res.ok){
         return NextResponse.json(
             {error: "Failed To fetch weather."},
             {status: res.status}
         )
     }
+
+    if(!uvres.ok){
+        return NextResponse.json(
+            {error: "Failed to retrieve UV"},
+            {status: uvres.status}
+        )
+    }
     
     const data = await res.json();
+    const uv = await uvres.json();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, uv);
 }
