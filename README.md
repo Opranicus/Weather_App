@@ -18,4 +18,4 @@ I built a simple weather app using the Next.js framework. I also used the OpenWe
 </ul>
 
 ## Image of the App
-
+<img width="264" height="645" alt="weatherapp" src="https://github.com/user-attachments/assets/b9ae8364-17d4-4d0d-9b0c-f777e9fed487" />
