@@ -32,7 +32,7 @@ export default function Homepage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-400 to-white">
       <div className="p-10 flex flex-col justify-center items-center">
         {error && <h1>{error}</h1>}
-        <h1 className="text-center font-medium text-2xl">My Location</h1>
+        {weather && <h1 className="text-center font-medium text-2xl">My Location: {weather.name}</h1>}
         <div className="w-sm mt-8 flex flex-col items-center justify-center">
 
           {weather && <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} className="w-32 h-32" />}
@@ -55,7 +55,10 @@ export default function Homepage() {
                 <h2 className="text-xl">Gust: {weather.wind.gust}</h2>
               </div>
             </Cards>
-            <Cards label="Air quality" />
+            <Cards label="Cloudiness" data={weather.clouds.all} />
+            <Cards label="Visibility" data={weather.visibility} />
+            <Cards label="Sunrise" data={weather.sys.sunrise} />
+            <Cards label="Sunset" data={weather.sys.sunset} />
           </div>
         )}
       </div>
