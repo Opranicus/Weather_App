@@ -49,6 +49,13 @@ export default function Homepage() {
         {weather && (
           <div className="flex flex-wrap justify-center items-center gap-10 w-full mt-10">
             <Cards label="Humidty" data={weather.main.humidity}>%</Cards>
+            <Cards label="Wind">
+              <div className="flex flex-col gap-2">
+                <h2 className="text-xl">Wind Speed: {weather.wind.speed}</h2>
+                <h2 className="text-xl">Gust: {weather.wind.gust}</h2>
+              </div>
+            </Cards>
+            <Cards label="Air quality" />
           </div>
         )}
       </div>
