@@ -46,11 +46,11 @@ export default function Homepage() {
           {weather && <h2 className="mt-3 font-medium">Feels like: {weather.main.feels_like} C</h2>}
 
         </div>
-       
+        {weather && (
           <div className="flex flex-wrap justify-center items-center gap-10 w-full mt-10">
             <Cards label="Humidty" data={weather.main.humidity}>%</Cards>
-            <Cards label="UV" data={weather.uvi} />
           </div>
+        )}
       </div>
     </div>
   )
